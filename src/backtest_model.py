@@ -31,15 +31,15 @@ for file in files:
     pip_value = pip_value_map.get(symbol, 1)
 
     model_path = os.path.join(model_dir, f"{symbol_tf}_2020_to_today_model.h5")
-    print(f"📂 Suche Modell unter: {model_path}")
-    print(f"📄 Datei: {file}")
+    print(f"Suche Modell unter: {model_path}")
+    print(f"Datei: {file}")
     print(f"→ symbol_tf: {symbol_tf}")
     print(f"→ Modellpfad: {model_path}")
     print(f"→ Modell vorhanden? {os.path.exists(model_path)}")
 
     try:
         if not os.path.exists(model_path):
-            print("❌ Modell nicht gefunden. Datei wird übersprungen.")
+            print("Modell nicht gefunden. Datei wird übersprungen.")
             continue
 
         df = pd.read_csv(file, index_col="time", parse_dates=True).dropna()
@@ -54,11 +54,11 @@ for file in files:
         capital = CAPITAL
         wins, losses, trades = 0, 0, 0
 
-        print(f"🔁 Starte Backtest für {symbol_tf} mit {len(data_scaled)} Zeilen...")
+        print(f"Starte Backtest für {symbol_tf} mit {len(data_scaled)} Zeilen...")
 
         for i in range(SEQ_LEN, len(data_scaled) - 1):
             if i % 500 == 0:
-                print(f"⏳ Fortschritt: {i}/{len(data_scaled)}")
+                print(f" Fortschritt: {i}/{len(data_scaled)}")
 
             seq = np.expand_dims(data_scaled[i - SEQ_LEN:i], axis=0)
             pred = model.predict(seq, verbose=0)[0][0]
@@ -103,12 +103,12 @@ for file in files:
                 "Final Capital ($)": round(capital, 2)
             })
         else:
-            print("⚠️ Keine Trades ausgeführt.")
+            print("Keine Trades ausgeführt.")
 
     except Exception as e:
-        print(f"❌ Fehler bei {symbol_tf}: {e}")
+        print(f"Fehler bei {symbol_tf}: {e}")
 
 # === Ergebnisse anzeigen ===
 df_results = pd.DataFrame(results)
-print("\n📊 Backtest Ergebnisse:")
+print("\n Backtest Ergebnisse:")
 print(df_results)

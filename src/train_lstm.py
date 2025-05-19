@@ -48,4 +48,4 @@ history = model.fit(X_train, y_train, epochs=10, batch_size=32, validation_split
 
 # === Auswertung ===
 loss, accuracy = model.evaluate(X_test, y_test)
-print(f"\n📊 Testgenauigkeit: {accuracy * 100:.2f}%")
+print(f"\nTestgenauigkeit: {accuracy * 100:.2f}%")

@@ -129,4 +129,4 @@ plt.tight_layout()
 plt.savefig(os.path.join(output_dir, "ALL_LSTM_STRATEGY_COMPARISON.png"))
 plt.close()
 
-print("✅ Alle Diagramme wurden gespeichert unter: comparison_plots/")
+print("Alle Diagramme wurden gespeichert unter: comparison_plots/")

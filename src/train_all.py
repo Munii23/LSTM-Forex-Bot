@@ -21,7 +21,7 @@ files = sorted(glob.glob(os.path.join(base_dir, "*.csv")))
 
 for file in files:
     filename = os.path.basename(file)
-    print(f"\n🧠 Trainiere Modell für: {filename}")
+    print(f"\n Trainiere Modell für: {filename}")
 
     try:
         # Daten einlesen
@@ -57,13 +57,13 @@ for file in files:
 
         # Auswertung
         loss, acc = model.evaluate(X_test, y_test, verbose=0)
-        print(f"✅ Genauigkeit: {acc * 100:.2f}%")
+        print(f"Genauigkeit: {acc * 100:.2f}%")
 
         #  Modell speichern
         model_name = filename.replace("_features.csv", "_model.h5")
         model_path = os.path.join(model_dir, model_name)
         model.save(model_path)
-        print(f"💾 Modell gespeichert unter: {model_path}")
+        print(f" Modell gespeichert unter: {model_path}")
 
     except Exception as e:
-        print(f"❌ Fehler bei Datei {filename}: {e}")
+        print(f" Fehler bei Datei {filename}: {e}")

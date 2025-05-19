@@ -35,7 +35,7 @@ for file in os.listdir(data_dir):
     if not file.endswith(".csv"):
         continue
 
-    print(f"📊 Verarbeite Datei: {file}")
+    print(f"Verarbeite Datei: {file}")
     filepath = os.path.join(data_dir, file)
     df = pd.read_csv(filepath, parse_dates=["time"])
 
@@ -44,6 +44,6 @@ for file in os.listdir(data_dir):
     out_name = file.replace(".csv", "_features.csv")
     out_path = os.path.join(output_dir, out_name)
     df_features.to_csv(out_path)
-    print(f"✅ Gespeichert unter: {out_path}")
+    print(f"Gespeichert unter: {out_path}")
 
-print("🏁 Preprocessing abgeschlossen!")
+print(" Preprocessing abgeschlossen!")

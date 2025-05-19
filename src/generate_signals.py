@@ -33,10 +33,10 @@ for fname in os.listdir(features_dir):
 
     # Modellprüfung
     if not os.path.exists(model_path):
-        print(f"❌ Modell nicht gefunden für: {fname}")
+        print(f" Modell nicht gefunden für: {fname}")
         continue
 
-    print(f"\n📥 {short_name}: Starte Verarbeitung...")
+    print(f"\n {short_name}: Starte Verarbeitung...")
 
     # Daten laden
     df = pd.read_csv(input_csv, index_col="time", parse_dates=True).dropna()
@@ -61,4 +61,4 @@ for fname in os.listdir(features_dir):
 
     # Speichern
     pd.DataFrame(signals).to_csv(output_csv, index=False)
-    print(f"✅ Gespeichert unter: {output_csv}")
+    print(f"Gespeichert unter: {output_csv}")
